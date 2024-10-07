@@ -1,0 +1,121 @@
+name: weather_app
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+  #for generating tdd structure
+  tdd_structure:
+    git: 
+      url: https://github.com/bobyzzy/tdd-file-structure-generator.git
+
+  #for logging data
+  equatable: ^2.0.5
+  #for implementing response from repository
+  dartz: ^0.10.1
+  #for svg
+  flutter_svg: ^2.0.9
+  #for generate unique id
+  uuid: ^4.5.1
+  # for loading animation
+  loading_animation_widget: ^1.2.1
+  # for routing
+  go_router: ^14.2.8
+  # state managment
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  # cache
+  shared_preferences: ^2.3.2
+  # network client
+  dio: ^5.7.0
+  # di
+  get_it: ^8.0.0
+  #logging 
+  pretty_dio_logger: ^1.4.0
+  #for formatters
+  intl: ^0.19.0
+  gap: ^3.0.1
+  freezed: ^2.5.7
+  freezed_annotation: ^2.4.4
+  internet_connection_checker: ^1.0.0+1
+  geolocator: ^13.0.1
+  animate_do: ^3.3.4
+  flutter_native_splash: ^2.4.1
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  json_serializable: ^6.8.0
+  build_runner:
+  flutter_gen_runner:
+  
+
+flutter_gen:
+  output: lib/gen/ 
+  line_length: 80 
+
+  # Optional
+  integrations:
+    flutter_svg: true
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/fonts/
+    - assets/png/
+    - assets/svg/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Tektur
+      fonts:
+        - asset: assets/fonts/Tektur-Regular.ttf
+          weight: 400
+        - asset: 'assets/fonts/Tektur-Medium.ttf'
+          weight: 500
+        - asset: 'assets/fonts/Tektur-Bold.ttf'
+          weight: 500
+
+  #     - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
