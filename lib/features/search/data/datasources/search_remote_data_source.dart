@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dio/dio.dart';
-import 'package:weather_app/core/constants/constatns.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:weather_app/features/search/data/models/search_city_weather/search_city_weather_model.dart';
 
@@ -17,7 +17,11 @@ class SearchRemoteDataSourceImpl implements ISearchRemoteDataSource {
     try {
       final response = await client.get(
         '/weather',
-        queryParameters: {"q": cityName, "units": "metric", "appid": Constants.API_KEY},
+        queryParameters: {
+          "q": cityName,
+          "units": "metric",
+          "appid": dotenv.get('API_KEY', fallback: ''),
+        },
       );
 
       if (response.statusCode == 200) {

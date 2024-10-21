@@ -25,6 +25,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final connectionChecker = InternetConnectionChecker();
+
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
@@ -65,7 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   const SliverGap(20),
-                  CurrentTemperatureInfoSliver(data: current),
+                  CurrentTemperatureInfoSliver(
+                    data: current,
+                  ),
                   const SliverGap(30),
                   MainInfoSliver(data: current),
                   const SliverGap(30),

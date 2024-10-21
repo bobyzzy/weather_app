@@ -3,16 +3,15 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-import 'package:weather_app/core/constants/constatns.dart';
 
 ///[NetworkConfig] class configuration of [Dio].
 ///It containst base url and base options of api.
 ///with custom [InterceptorsWrapper]
 class NetworkConfig {
   final Dio _instance = Dio(BaseOptions(
-    baseUrl: Constants.BASE_URL,
+    baseUrl: dotenv.env["BASE_URL"] ?? '',
     connectTimeout: const Duration(seconds: 15),
     receiveTimeout: const Duration(seconds: 15),
   ));
@@ -69,7 +68,7 @@ class ErrorInterceptor extends Interceptor {
   void onError(DioException error, ErrorInterceptorHandler handler) {
     if (error.type == DioExceptionType.connectionTimeout) {
       final options = error.requestOptions;
-    
+
       _dio.request(options.path);
     }
 

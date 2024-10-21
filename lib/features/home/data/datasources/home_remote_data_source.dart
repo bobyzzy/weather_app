@@ -2,7 +2,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:weather_app/core/constants/constatns.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app/core/errors/exeptions.dart';
 import 'package:weather_app/features/home/data/models/current_weather_model/current_weather_model.dart';
 import 'package:weather_app/features/home/data/models/forecast_weather_model/forecast_weather_model.dart';
@@ -23,7 +23,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
         "lat": lat.toString(),
         "lon": lon.toString(),
         "units": "metric",
-        "appid": Constants.API_KEY
+        "appid": dotenv.get("API_KEY", fallback: ''),
       });
 
       if (response.statusCode == 200) {
@@ -43,7 +43,7 @@ class HomeRemoteDataSourceImpl implements IHomeRemoteDataSource {
         "lat": lat.toString(),
         "lon": lon.toString(),
         "units": "metric",
-        "appid": Constants.API_KEY
+        "appid": dotenv.get("API_KEY", fallback: ''),
       });
 
       if (response.statusCode == 200) {

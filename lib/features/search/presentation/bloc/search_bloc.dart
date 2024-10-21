@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:weather_app/core/errors/failure.dart';
 import 'package:weather_app/features/search/domain/entities/search_city_weather_entity.dart';
@@ -27,9 +28,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
 String _failureMessage(Failure failure) {
   switch (failure.runtimeType) {
-    case const (ServerFailure) :
+    case const (ServerFailure):
       return 'Server Error';
-    case const (CacheFailure) :
+    case const (CacheFailure):
       return "Cache Error";
     case const (NotFoundFailure):
       return "City not found";

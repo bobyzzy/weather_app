@@ -8,7 +8,7 @@ import 'package:weather_app/features/favorites/data/models/favorite_location_inf
 
 abstract interface class IFavoritesLocalDataSource {
   Future<FavoriteLocationModel> setFavorites(FavoriteLocationModel favorites);
-  Future<void> removeavorite(FavoriteLocationModel favorites);
+  Future<void> removeFavorite(FavoriteLocationModel favorites);
   Future<FavoriteLocationModel?> getFavorites();
 }
 
@@ -43,7 +43,7 @@ class FavoritesLocalDataSourceIMPL implements IFavoritesLocalDataSource {
   }
 
   @override
-  Future<void> removeavorite(FavoriteLocationModel favorites) async {
+  Future<void> removeFavorite(FavoriteLocationModel favorites) async {
     try {
       String favoritesToCache = json.encode(favorites.toJson());
       log(favoritesToCache);

@@ -24,7 +24,7 @@ class FavoriteLocationRepositoryImpl implements IFavoriteLocationsRepository {
   @override
   Future<Either<Failure, void>> removeLocation(FavoriteLocationsEntity info) async {
     try {
-      await localDataSource.removeavorite(info.toModel());
+      await localDataSource.removeFavorite(info.toModel());
 
       return const Right(null);
     } catch (e) {

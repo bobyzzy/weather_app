@@ -38,7 +38,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Future<bool> connectionStatus() async {
     final checker = sl<InternetConnectionChecker>();
 
-    return !await checker.hasConnection;
+    return await checker.hasConnection;
   }
 
   @override

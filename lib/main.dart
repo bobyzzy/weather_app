@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -5,12 +7,15 @@ import 'package:weather_app/core/bloc/bloc_scope.dart';
 import 'package:weather_app/core/service_locator/service_locator.dart';
 import 'package:weather_app/core/routes/app_router.dart';
 import 'package:weather_app/features/settings/presentation/bloc/bloc/app_settings_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'core/service_locator/service_locator.dart' as di;
 
 final brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness;
 
 void main() async {
+  await dotenv.load(fileName: '.env');
+
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.initDi();
