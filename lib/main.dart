@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -15,7 +13,6 @@ final brightness = WidgetsBinding.instance.platformDispatcher.platformBrightness
 
 void main() async {
   await dotenv.load(fileName: '.env');
-
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.initDi();
